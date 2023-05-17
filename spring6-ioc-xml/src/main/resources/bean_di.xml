@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    基于set方法完成注入, 注入null-->
+    <bean id="book" class="com.imruize.spring6.iocxml.di.Book">
+        <property name="bname" value="java"></property>
+        <property name="author" value="zeze"></property>
+<!--        <property name="others"><null></null></property>-->
+<!--        <property name="others" value="&lt;&gt;"></property>-->
+        <property name="others">
+            <value><![CDATA[a<b]]></value>
+        </property>
+    </bean>
+    <!--    构造方法方法完成注入-->
+    <bean id="bookCon" class="com.imruize.spring6.iocxml.di.Book">
+        <constructor-arg name="bname" value="python"></constructor-arg>
+        <constructor-arg name="author" value="zeze"></constructor-arg>
+    </bean>
+</beans>
