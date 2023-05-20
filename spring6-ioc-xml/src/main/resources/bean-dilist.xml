@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="emp" class="com.imruize.spring6.iocxml.ditest.Employee">
+        <property name="name" value="zeze"> </property>
+        <property name="age" value="20"> </property>
+    </bean>
+    <bean id="emp2" class="com.imruize.spring6.iocxml.ditest.Employee">
+        <property name="name" value="ruize"> </property>
+        <property name="age" value="30"> </property>
+    </bean>
+    <bean id="dept" class="com.imruize.spring6.iocxml.ditest.Department">
+        <property name="name" value="IT"> </property>
+        <property name="empList">
+            <list>
+                <ref bean="emp"></ref>
+                <ref bean="emp2"></ref>
+            </list>
+        </property>
+    </bean>
+</beans>

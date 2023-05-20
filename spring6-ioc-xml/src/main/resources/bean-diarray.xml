@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <!--注入数组类型属性-->
+    <bean id="dept" class="com.imruize.spring6.iocxml.ditest.Department">
+        <property name="name" value="IT"> </property>
+    </bean>
+    <bean id="emp" class="com.imruize.spring6.iocxml.ditest.Employee">
+        <!--普通属性值-->
+        <property name="name" value="zeze"> </property>
+        <property name="age" value="50"> </property>
+        <!--对象类型-->
+        <property name="depart" ref="dept"> </property>
+        <!--数组类型-->
+        <property name="loves">
+            <array>
+                <value>eat</value>
+                <value>sleep</value>
+                <value>coding</value>
+            </array>
+        </property>
+    </bean>
+
+
+</beans>

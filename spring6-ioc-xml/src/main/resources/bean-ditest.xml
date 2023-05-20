@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        <!--引入外部bean
+        创建两个类的对象
+        在employee对象中，只用property标签，引入depart的bean-->
+    <bean id="department" class="com.imruize.spring6.iocxml.ditest.Department">
+        <property name="name" value="IT"> </property>
+    </bean>
+
+    <bean id="employee" class="com.imruize.spring6.iocxml.ditest.Employee">
+        <property name="name" value="zeze"> </property>
+        <property name="age" value="50"> </property>
+        <!--对象类型的属性: private Department depart-->
+        <property name="depart" ref="department"> </property>
+    </bean>
+    <!--引入内部bean
+        创建两个类的对象-->
+    <bean id="employee2" class="com.imruize.spring6.iocxml.ditest.Employee">
+        <property name="name" value="ruize"> </property>
+        <property name="age" value="20"> </property>
+        <!--对象类型的属性: private Department depart-->
+        <property name="depart">
+            <bean id="department2" class="com.imruize.spring6.iocxml.ditest.Department">
+                <property name="name" value="CEO"> </property>
+            </bean>
+        </property>
+    </bean>
+    <!--级联属性赋值
+        创建两个类的对象-->
+    <bean id="department3" class="com.imruize.spring6.iocxml.ditest.Department">
+        <property name="name" value="Media"> </property>
+    </bean>
+
+    <bean id="employee3" class="com.imruize.spring6.iocxml.ditest.Employee">
+        <property name="name" value="zhang"> </property>
+        <property name="age" value="30"> </property>
+        <!--对象类型的属性: private Department depart-->
+        <property name="depart" ref="department3"> </property>
+        <property name="depart.name" value="QA"> </property>
+    </bean>
+
+
+</beans>
