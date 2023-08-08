@@ -1,17 +1,13 @@
-package com.imruize.spring6.tx.service;
+package com.imruize.spring6.xmltx.service;
 
-import com.imruize.spring6.tx.dao.BookDao;
+import com.imruize.spring6.xmltx.dao.BookDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.concurrent.TimeUnit;
-
 @Service
-@Transactional(propagation = Propagation.REQUIRES_NEW)
-public class BookServiceImpl implements BookService{
+public class BookServiceImpl implements BookService {
     @Autowired
     private BookDao bookDao;
     @Override
